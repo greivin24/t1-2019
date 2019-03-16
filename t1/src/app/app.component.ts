@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { DataStorageService } from './data-storage.service';
+
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 't1';
+
+  constructor(private dataStorageService:DataStorageService){
+
+    this.dataStorageService.setObjectValue("nombre", "Greivin RoAt");
+
+    console.log(this.dataStorageService.getObjectValue("nombre"));
+  }
+
+
 }
