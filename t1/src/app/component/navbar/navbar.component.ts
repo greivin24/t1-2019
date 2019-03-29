@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthGuard } from '../../guards/auth-guard.service';
+import { DataStorageService } from '../../data-storage.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +11,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  isOn:boolean;
+  constructor(private authGuard:AuthGuard, private dataStorageService:DataStorageService, private router:Router ) {
+    
+  }
 
   ngOnInit() {
+
+  }
+
+  logOut(){
+    this.dataStorageService.deleteObjectValue("activo");
+    this.router.navigate(['/login']);
   }
 
 }

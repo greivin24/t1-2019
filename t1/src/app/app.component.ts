@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { DataStorageService } from './data-storage.service';
 import { Noticia } from './class/Noticia';
+import { User } from './class/interface';
+
 
 
 @Component({
@@ -14,6 +16,9 @@ export class AppComponent {
   public noticia1:Noticia;
   public noticia2:Noticia;
   public noticia3:Noticia;
+
+  public user:User;
+
   constructor(private dataStorageService:DataStorageService){
 
       this.noticia1 = new Noticia();
@@ -45,6 +50,8 @@ export class AppComponent {
        this.noticia3.ultimaModificacion = Date.now();
 
        this.dataStorageService.setObjectValue("3", this.noticia3);
+
+        
 
 
   }

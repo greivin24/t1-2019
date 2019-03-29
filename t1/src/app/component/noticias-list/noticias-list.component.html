@@ -1,11 +1,13 @@
-<carousel>
+<!-- <carousel>
     <slide *ngFor="let item of noticias_list; let i = index">
         <img src="../../../assets/{{item.Imagen}}" alt="First slide" style="display: block; width: 100%;">
         <div class="carousel-caption d-none d-md-block">
             <h3>{{item.Titulo}}</h3>
             <p>{{item.Descripcion}}</p>
             <p>{{item.fechaCreacion | date:'medium'}}</p>
-            <a class="btn btn-primary" [routerLink]="[ '/noticias-edit', item.Id ]">Editar</a>
+            <a class="btn btn-primary" [routerLink]="[ '/private/noticias-edit', item.Id ]">Editar</a>
         </div>
     </slide>
-</carousel>
+</carousel> -->
+
+<app-horarios-list></app-horarios-list>

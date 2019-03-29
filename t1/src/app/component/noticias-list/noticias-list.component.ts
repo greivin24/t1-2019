@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Noticia } from '../../class/Noticia';
 import { DataStorageService } from './../../data-storage.service';
 
+
+
+
 @Component({
   selector: 'app-noticias-list',
   templateUrl: './noticias-list.component.html',

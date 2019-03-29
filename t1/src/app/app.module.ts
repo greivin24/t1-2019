@@ -17,6 +17,10 @@ import { PrivateComponentComponent } from './component/private-component/private
 import { NoticiasUpsertComponentComponent } from './component/noticias-upsert-component/noticias-upsert-component.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
 
+import { AuthGuard } from './guards/auth-guard.service';
+
+
+import { ExtraModule } from './extra/extra.module';
 
 
 @NgModule({
@@ -35,10 +39,12 @@ import { NavbarComponent } from './component/navbar/navbar.component';
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }), 
     CarouselModule, 
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule, 
+    ExtraModule
   ],
   providers: [
-    DataStorageService
+    DataStorageService, 
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

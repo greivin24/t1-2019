@@ -20,6 +20,7 @@ export class NoticiasUpsertComponentComponent implements OnInit {
     this.iniciarNoticia();
     try {
       this.loadNoticia( this.activatedRouter.snapshot.params['id']);
+      //this.cargarNoticia( this.activatedRouter.snapshot.params['id']);
     } catch (error) {
       this.noticia = null;
     }
@@ -70,7 +71,6 @@ export class NoticiasUpsertComponentComponent implements OnInit {
     }
   }
 
-
   guardarData = () => {
     if (this.formGroup.valid) {
       let noticiaIndex = -1;
@@ -97,15 +97,9 @@ export class NoticiasUpsertComponentComponent implements OnInit {
   }
 
   guardarData2(){
-    this.formGroup = this.formBuilder.group({
-      id: [4, [Validators.required],],
-      titulo: [this.noticia.Titulo, [Validators.required]],
-      imagen: [this.noticia.Imagen, [Validators.required]],
-      descripcion: [this.noticia.Descripcion, [Validators.required, Validators.minLength(15)]],
-      fechaCreacion: [this.noticia.fechaCreacion],
-      ultimaModificacion: [this.noticia.ultimaModificacion],
-    });
     console.log(this.noticia);
+    console.log(localStorage.clear);
+    //this.dataStorageService.setObjectValue("noticia"+this.noticia.Id.toString(), this.noticia);
   }
 
 

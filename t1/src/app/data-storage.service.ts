@@ -14,17 +14,27 @@ export class DataStorageService {
       throw new Error('No se puede almacenar la información, porque no está habilitado el localStorage');
     }
   }
-    getObjectValue= (key:string)=>{
+
+  getObjectValue= (key:string)=>{
       if (window.localStorage) {
         const DATA= JSON.parse(localStorage.getItem(key));
         if (DATA) {
           return DATA;
         }else{
-          throw new Error('No se encontró el valor ${key} en el localStorage');
+          //console.log('No se encontró el valor ${key} en el localStorage');
+          this.setObjectValue(key, null);
+          return null;
         }
       }else{
-        throw new Error('No se puede obtener la información, porque no está habilitado el localStorage');
+        console.log('No se puede obtener la información, porque no está habilitado el localStorage');
       }
-    }
+  }
+
+  
+  deleteObjectValue(key:string){
+    localStorage.removeItem(key);
+  }
+  
+
 
 }

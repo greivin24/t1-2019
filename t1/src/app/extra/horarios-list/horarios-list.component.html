@@ -1,0 +1,13 @@
+<div class="container mt-3">
+    <div class="row">
+        <input type="number" name="" maxlength="3" min="-11" max="12" #numero value="1">
+        <button class="btn btn-outline-primary" (click)="btnPlus(numero.value)"><i class="fa fa-plus"></i></button>
+        <button class="btn btn-outline-danger mf-2" (click)="btnPop()"><i class="	fa fa-minus-square"></i></button>
+    </div>
+    <div class="row mt-3">
+        <div *ngFor="let item of reloj_list; let i=index">
+            <app-reloj class="mf-2" [huso]="item" (dateEmitted)="showDate($event)"></app-reloj>
+        </div>
+
+    </div>
+</div>

@@ -1,4 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { Login } from '../../class/interface';
+import { NgForm } from '@angular/forms';
+import { DataStorageService } from '../../data-storage.service';
+import { Router } from '@angular/router';
+
+
+
 
 @Component({
   selector: 'app-login-component',
@@ -7,9 +14,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponentComponent implements OnInit {
 
-  constructor() { }
+  user:Login= {
+    "id":"",
+    "pass":""
+  }
+  
+  constructor( private dataStorageService:DataStorageService, private router:Router) { }
 
   ngOnInit() {
   }
 
+  btnLogin(){
+    this.dataStorageService.setObjectValue("activo",this.user);
+    this.router.navigate(['/private/noticias-list']);
+  }
 }
